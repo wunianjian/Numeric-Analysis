@@ -18,6 +18,9 @@ def mifa(A,u,c=0.0001):
             u=v/next_l1
 
             lc = abs(l1-next_l1)
+            print('v =\n', v)
+            print('lambda =\n', next_l1)
+            print('u =\n', u)
             if np.max(lc) < c:
                 print('End at '+str(count)+' because '+str(lc)+' < c .')
                 return l1,u #当误差满足要求时 返回计算结果
@@ -52,6 +55,6 @@ def fanmifa(A,u,c=0.0001):
         return False
 
 c=0.001 #0为不适用该判据
-A = [[5,-1,-1],[3,1,-1],[4,-2,1]]
-u = [1,0,0]
+A = [[5,1/2,2],[1/2,6,3/2],[2,3/2,4]]
+u = [1,1,1]
 print(mifa(A,u,c))

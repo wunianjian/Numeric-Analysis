@@ -3,15 +3,15 @@
 """
 import numpy as np
 
-y = 1       # y初值，即y(start)
-h = 0.05    # 步长
+y = 0       # y初值，即y(start)
+h = 1    # 步长
 start = 0   # t初值
-end = 0.5   # 要计算y(end)
+end = 4   # 要计算y(end)
 
 
 def f(_t, _y):
     """ y'= f(t, y) """
-    return _t - _y + 1
+    return _t*_t - 3 * _y
 
 # ------以上为可能需要修改的参数------
 

@@ -6,15 +6,15 @@ import numpy as np
 from scipy.optimize import fsolve
 
 mode = 0    # 0: 向后欧拉法；1: 梯形法
-y = 1       # y初值，即y(start)
-h = 0.025   # 步长
+y = 0       # y初值，即y(start)
+h = 1    # 步长
 start = 0   # t初值
-end = 0.15  # 要计算y(end)
+end = 4   # 要计算y(end)
 
 
 def f(_t, _y):
     """ y'= f(t, y) """
-    return -100 * _y
+    return _t*_t - 3 * _y
 
 
 # ------以上为可能需要修改的参数------

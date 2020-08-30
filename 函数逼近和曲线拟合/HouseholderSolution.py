@@ -38,7 +38,19 @@ def valid(Q, R):
     return np.dot(Q, R)
 
 
-A = np.array([[4, 3], [3, 5]], dtype='float64')
+def result(A_, b_):
+    m, n = np.shape(A_)
+    x = np.zeros(n)
+    for i in range(1, n + 1):
+        x[n - i] = b_[n - i][0]
+        for j in range(1, i):
+            x[n - i] -= x[n - j] * A_[n - i][n - j]
+        x[n - i] = x[n - i] / A_[n - i][n - i]
+    return x
+
+
+A = np.array([[1, 0], [1, 1], [1, 4], [1, 9]], dtype='float64')  # matrix
+b = np.array([[1], [1], [2], [3.5]])
 print("A :")
 print(A)
 W, R = house(A)
@@ -51,5 +63,13 @@ print("R :")
 print(R)
 print("Q*R :")
 print(valid(Q, R))
-print("R*Q :")
-print(valid(R, Q))
+A = valid(Q, R)
+A_ = valid(Q, A)
+print("A_ :")
+print(A_)
+b_ = valid(Q, b)
+print("b_ :")
+print(b_)
+resultx = result(R, b_)
+print("x :")
+print(resultx)
